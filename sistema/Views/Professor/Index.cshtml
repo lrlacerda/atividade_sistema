@@ -8,18 +8,11 @@
 }
 else
 {
-    <div style="display:flex">
-        <h3>@ViewBag.NomeProfessor</h3>
 
-        <form asp-controller="Login" asp-action="Logout" method="post">
-            <button type="submit">Sair</button>
-        </form>
-    </div>
 
-    <form asp-action="CadastrarTurma" asp-controller="Professor">
-        <input type="text" name="nomeTurma" placeholder="Nome da Turma" required />
-        <button type="submit">Cadastrar Turma</button>
-    </form>
+   
+    <button type="button" data-bs-toggle="modal" data-bs-target="#cadastrarTurma">Cadastrar Turma</button>
+
 
     <h4>Turmas</h4>
 
@@ -59,5 +52,27 @@ else
     {
         <p style="color:red">@TempData["Mensagem"]</p>
     }
+
+    <!-- Modal -->
+    <div class="modal fade" id="cadastrarTurma" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cadastrarTurma" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="cadastrarTurmaLabel">Cadastrar Turma</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form asp-action="CadastrarTurma" asp-controller="Professor">
+                    <div class="modal-body">
+                        <label class="form-label">Nome da Turma</label>
+                        <input type="text" name="nomeTurma" class="form-control" required />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 }
 

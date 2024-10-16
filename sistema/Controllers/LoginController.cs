@@ -30,7 +30,7 @@ namespace sistema.Controllers
                 return RedirectToAction("Index", "Professor");
             }
 
-            TempData["Mensagem "] = "Email ou senha incorretos, tente novamente!";
+            TempData["Mensagem"] = "Email ou senha incorretos, tente novamente!";
 
             return RedirectToAction("Index", "Login");
         }
